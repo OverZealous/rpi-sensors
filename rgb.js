@@ -19,15 +19,15 @@ wpi.softPwmWrite(PINS[1], 100);
 wpi.softPwmCreate(PINS[2], 100, 100);
 wpi.pinMode(PINS[2], wpi.SOFT_PWM_OUTPUT);
 wpi.softPwmWrite(PINS[2], 100);
-  
+
 var timer = setInterval(function() {
   var color = new cm.Hsl(h, s / 100, l / 100).toRgb();
   // console.log(`(${h}, ${s}, ${l})`, color.toHex().toString());
-  
+
   wpi.softPwmWrite(PINS[0], 100 - Math.floor(90 * color.red() / 255));
   wpi.softPwmWrite(PINS[1], 100 - Math.floor(90 * color.green() / 255));
   wpi.softPwmWrite(PINS[2], 100 - Math.floor(90 * color.blue() / 255));
-  
+
   h += 1;
   if(h > 360) {
     // console.log(color.toHex().toString());
