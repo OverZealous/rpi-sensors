@@ -20,7 +20,7 @@ updateLed();
 
 function register() {
 	wpi.wiringPiISR(tiltPin, wpi.INT_EDGE_BOTH, function() {
-		updateLed();
+		setTimeout(updateLed);
 		register();
 	});
 }
